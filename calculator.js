@@ -26,4 +26,4 @@ if (operation === '1') {
   output = Number(number1) / Number(number2);
 }
 
-console.log(`The result is: ${output}`)
+console.log(`The result is: ${output}`);
