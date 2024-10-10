@@ -1,12 +1,27 @@
 const MESSAGE = require('./calculator_messages.json');
-const readline = require('readline-sync');
-const LANGUAGE = 'pt-br';
-
+const READLINE = require('readline-sync');
+let language = 'en';
 
 function prompt(key) {
-  let message = messages(key, LANGUAGE);
+  let message = messages(key, language);
   console.log(`=> ${message}`);
 }
+prompt("language");
+languageChoice = READLINE.question();
+
+if (languageChoice === "1") {
+  language = "en";
+} else if (languageChoice === "2") {
+  language = "pt-br";
+} else {
+  while (!['1', '2'].includes(languageChoice)) {
+    prompt("language");
+    languageChoice = READLINE.question();
+  }
+}
+
+
+
 
 function messages(message, lang = 'en') {
   return MESSAGE[lang][message];
@@ -19,26 +34,26 @@ prompt('greeting');
 
 while (true) {
   prompt('firstNumber');
-  let number1 = readline.question();
+  let number1 = READLINE.question();
   while (invalidNumber(number1)) {
     prompt('invalidNumber');
-    number1 = readline.question();
+    number1 = READLINE.question();
   }
 
   prompt('secondNumber');
-  let number2 = readline.question();
+  let number2 = READLINE.question();
 
   while (invalidNumber(number2)) {
     prompt("numberError");
-    number2 = readline.question;
+    number2 = READLINE.question;
   }
 
   prompt("operation");
-  let operation = readline.question();
+  let operation = READLINE.question();
 
   while (!['1', '2', '3', '4'].includes(operation)) {
     prompt("operationError");
-    operation = readline.question();
+    operation = READLINE.question();
   }
 
   let output;
@@ -58,10 +73,10 @@ while (true) {
   }
 
   prompt('result');
-  console.log(output);
+  console.log("=> " + output);
 
   prompt("continue");
-  let answer = readline.question();
+  let answer = READLINE.question();
 
   if (answer[0].toLowerCase() !== 'y' || answer[0].toLowerCase() !== "s") break;
 }

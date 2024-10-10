@@ -1,5 +1,6 @@
 {
   "en": {
+    "language": "Please choose a language. 1) English 2) Portugues",
     "greeting": "Welcome to Calculator!",
     "firstNumber": "What's the first number?",
     "secondNumber": "What's the second number?",
